@@ -32,5 +32,14 @@ module KvanttikoodiBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.action_mailer.smtp_settings = {
+      :address => "email-smtp.eu-west-1.amazonaws.com",
+      :port => 587,
+      :user_name => ENV["SES_SMTP_USERNAME"], #Your SMTP user
+      :password => ENV["SES_SMTP_PASSWORD"], #Your SMTP password
+      :authentication => :login,
+      :enable_starttls_auto => true
+    }
   end
 end

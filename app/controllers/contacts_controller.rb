@@ -4,7 +4,11 @@ class ContactsController < ApplicationController
   before_action :recaptcha, only: [:contact_us]
 
   def contact_us
-    render json: nil, status: :created
+    if ContactsMailer.notify(permitted_params).deliver
+      render json: nil, status: :created
+    else
+      render json: nil, status: :not_found     
+    end
   end
 
   protected
