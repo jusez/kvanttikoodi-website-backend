@@ -3,6 +3,6 @@ class ContactsMailer < ApplicationMailer
 
   def notify(params)
     mail subject: 'Yhteydenottopyyntö kotisivuilta',
-     body: "Nimi: #{params[:name]}\n Puh: #{params[:phone]}\n Email: #{params[:email]}\n Viesti:\n\n #{params[:message]}"
+     body: "Nimi: #{params[:name]}\nPuh: #{params[:phone]}\nEmail: #{params[:email]}\nViesti:\n\n#{params[:message]}"
   end
 end
